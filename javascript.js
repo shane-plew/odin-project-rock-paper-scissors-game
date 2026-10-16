@@ -65,10 +65,10 @@ function checkWinner ()
   }
 }
 
-//Play five rounds of game. Declare winner at the end.
+//Game loop.
 function playGame ()
 {
-  for (let i = 0; i < 5; i++)
+  do
   {
     console.log("Round number " + (i + 1));
 
@@ -78,7 +78,7 @@ function playGame ()
       "-------------\n" +
       "You: " + humanScore + "\n" + 
       "Computer: " + computerScore);
-  }
+  }while (humanScore <=5 && computerScore <=5);
 
   //Display game over results and goodbye message.
   console.log("Game over, " + checkWinner() + "\n" +
