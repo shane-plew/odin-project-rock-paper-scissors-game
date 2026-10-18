@@ -2,25 +2,92 @@
 {
     padding: 0;
     margin: 0;
+    color: white;
 }
 
 html
 {
     height: 100vh;
     width: 100vw;
+    font-family: 'Courier New', monospace;
 }
 
 body
 {
+    background-color: black;
     height: 100%;
     width: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
 
-#game
+h1
+{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    display: flex;
+    font-size: 27px;
+    width: 400px;
+    justify-content: center;
+    border-top: 2px dashed white;
+    border-left: 2px dashed white;
+    border-right: 2px dashed white;
+}
+
+#choice-container
+{
+    display: flex;
+    width: 400px;
+    height: 200px;
+    border-top: 2px dashed white;
+    border-left: 2px dashed white;
+    border-right: 2px dashed white;
+}
+
+#player-choice
+{
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 200px;
+    height: 185px;
+    background-color: black;
+    border: 2px dashed black;
+}
+
+#computer-choice
+{
+    margin: 5px;
+    margin-left: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 200px;
+    height: 185px;
+    background-color: black;
+    border: 2px dashed black;
+}
+
+#button-container
 {
     width: 400px;
-    height: 300px;
-    background-color: green;
+    height: 50px;
+    background-color: black;
+    border-top: 2px dashed white;
+    border-left: 2px dashed white;
+    border-right: 2px dashed white;
+}
+
+#game-info
+{
+    width: 400px;
+    height: 50px;
+    background-color: black;
+    border-top: 2px dashed white;
+    border-left: 2px dashed white;
+    border-right: 2px dashed white;
+    border-bottom: 2px dashed white;
 }

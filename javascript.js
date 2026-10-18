@@ -14,7 +14,7 @@ function getComputerChoice()
   }
   else if (randomNum == 2)
   {
-    return choice3;
+return choice3;
   }
 }
 
@@ -68,11 +68,12 @@ function checkWinner ()
 //Game loop.
 function playGame ()
 {
+  //Game loop.
   do
   {
-    const rockBtn.createElement("button");
-    const paperBtn.createElement("button");
-    const scissorsBtn.createElement("scissors");
+    const rockBtn = document.createElement("button");
+    const paperBtn = document.createElement("button");
+    const scissorsBtn = document.createElement("scissors");
 
     console.log("Round number " + (i + 1));
 
@@ -82,9 +83,11 @@ function playGame ()
       "-------------\n" +
       "You: " + humanScore + "\n" + 
       "Computer: " + computerScore);
+
   }while (humanScore <=5 && computerScore <=5);
 
-  //Display game over results and goodbye message.
+
+  //Display game over, results, and goodbye message.
   console.log("Game over, " + checkWinner() + "\n" +
     "Goodbye!");
 }
