@@ -25,7 +25,7 @@ function getHumanChoice()
 }
 
 //Compare player choices, display round winner message, increment winner's score by 1.
-function playRound (humanChoice, computerChoice)
+function playRound (humanChoice,computerChoice)
 {
   //Make user input all lower case for compatibility with conditional logic.
   humanChoice = humanChoice.toLowerCase();
@@ -70,6 +70,10 @@ function playGame ()
 {
   do
   {
+    const rockBtn.createElement("button");
+    const paperBtn.createElement("button");
+    const scissorsBtn.createElement("scissors");
+
     console.log("Round number " + (i + 1));
 
     playRound (getHumanChoice(), getComputerChoice());
