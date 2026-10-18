@@ -34,6 +34,7 @@ h1
     border-top: 2px dashed white;
     border-left: 2px dashed white;
     border-right: 2px dashed white;
+    border-radius: 10px 10px 0px 0px;
 }
 
 #choice-container
@@ -56,6 +57,7 @@ h1
     height: 185px;
     background-color: black;
     border: 2px dashed black;
+    border-radius: 8px 8px 8px 8px;
 }
 
 #computer-choice
@@ -69,6 +71,7 @@ h1
     height: 185px;
     background-color: black;
     border: 2px dashed black;
+    border-radius: 8px 8px 8px 8px;
 }
 
 #button-container
@@ -90,4 +93,5 @@ h1
     border-left: 2px dashed white;
     border-right: 2px dashed white;
     border-bottom: 2px dashed white;
+    border-radius: 0px 0px 10px 10px;
 }
