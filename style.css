@@ -109,3 +109,14 @@ h1
     background-color: black;
     font-size: 24px;
 }
+
+#play-button:hover
+{
+    border-color: limegreen;
+}
+
+#play-button:active
+{
+    border-color: green;
+    color: lightgray;
+}
