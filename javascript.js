@@ -71,9 +71,18 @@ function playGame ()
   //Game loop.
   do
   {
+    //Create buttons for user selection.
     const rockBtn = document.createElement("button");
     const paperBtn = document.createElement("button");
-    const scissorsBtn = document.createElement("scissors");
+    const scissorsBtn = document.createElement("button");
+    const playAgainBtn = document.createElement("button");
+
+    //Create variables to store elements.
+    let playBtn = document.querySelector("#play-button");
+    let playerChoice = document.querySelector("#player-choice");
+    let computerChoice = document.querySelector("#computer-choice");    
+    let btnContainer = document.querySelector("#button-container");
+    let gameInfo = document.querySelector("#game-info");
 
     console.log("Round number " + (i + 1));
 
