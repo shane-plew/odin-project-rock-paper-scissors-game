@@ -65,6 +65,18 @@ function checkWinner ()
   }
 }
 
+function styleButton (element, btnName)
+{
+  element.style.height = "40px";
+  element.style.paddingLeft = "5px";
+  element.style.paddingRight = "5px";
+  element.style.border = "2px dashed white";
+  element.style.borderRadius = "5px";
+  element.style.backgroundColor = "black";
+  element.style.fontSize = "24px";
+  element.textContent = btnName;
+}
+
 //Game loop.
 function playGame ()
 {
@@ -77,12 +89,24 @@ function playGame ()
     const scissorsBtn = document.createElement("button");
     const playAgainBtn = document.createElement("button");
 
-    //Create variables to store elements.
+    //Style buttons.
+    styleButton(rockBtn, "Rock");
+    styleButton(paperBtn, "Paper");
+    styleButton(scissorsBtn, "Scissors");
     
+
+    //Create variables to store elements.
     let playerChoice = document.querySelector("#player-choice");
     let computerChoice = document.querySelector("#computer-choice");    
     let btnContainer = document.querySelector("#button-container");
     let gameInfo = document.querySelector("#game-info");
+    let playBtn = document.querySelector("#play-button");
+
+    //Display buttons when game starts.
+    btnContainer.removeChild(playBtn);
+    btnContainer.appendChild(rockBtn); 
+    btnContainer.appendChild(paperBtn);
+    btnContainer.appendChild(scissorsBtn);
 
     console.log("Round number " + (i + 1));
 
