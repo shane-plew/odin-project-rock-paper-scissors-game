@@ -75,6 +75,16 @@ function styleButton (element, btnName)
   element.style.backgroundColor = "black";
   element.style.fontSize = "24px";
   element.textContent = btnName;
+  element.addEventListener("mouseover", () => element.style.borderColor = "limegreen");
+  element.addEventListener("mouseout", () => element.style.borderColor = "white");
+  element.addEventListener("mousedown", () => {
+    element.style.borderColor = "green";
+    element.style.color = "lightgray";
+  });
+  element.addEventListener("mouseup", () => {
+    element.style.borderColor = "limegreen";
+    element.style.color = "white";
+  });
 }
 
 //Game loop.
