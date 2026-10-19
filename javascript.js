@@ -78,7 +78,7 @@ function playGame ()
     const playAgainBtn = document.createElement("button");
 
     //Create variables to store elements.
-    let playBtn = document.querySelector("#play-button");
+    
     let playerChoice = document.querySelector("#player-choice");
     let computerChoice = document.querySelector("#computer-choice");    
     let btnContainer = document.querySelector("#button-container");
@@ -101,8 +101,13 @@ function playGame ()
     "Goodbye!");
 }
 
-//Initialize player scores to zero.
+//Variables for node manipulation.
+const playBtn = document.querySelector("#play-button");
+
+//Variable declarations.
 let humanScore = 0, computerScore = 0;
 
-//Call playGame.
-playGame();
+//Start game when play button is pressed.
+playBtn.addEventListener("click", (e)=>{
+  playGame();
+});
