@@ -76,7 +76,10 @@ function styleButton (element, btnName)
   element.style.fontSize = "24px";
   element.textContent = btnName;
   element.addEventListener("mouseover", () => element.style.borderColor = "limegreen");
-  element.addEventListener("mouseout", () => element.style.borderColor = "white");
+  element.addEventListener("mouseout", () => {
+    element.style.borderColor = "white";
+    element.style.color = "white";
+  });
   element.addEventListener("mousedown", () => {
     element.style.borderColor = "green";
     element.style.color = "lightgray";
@@ -103,7 +106,6 @@ function playGame ()
     styleButton(rockBtn, "Rock");
     styleButton(paperBtn, "Paper");
     styleButton(scissorsBtn, "Scissors");
-    
 
     //Create variables to store elements.
     let playerChoice = document.querySelector("#player-choice");
