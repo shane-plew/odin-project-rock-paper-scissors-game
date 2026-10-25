@@ -90,18 +90,27 @@ function playGame ()
   //Variable initialization.
   let playerScore = 0, computerScore = 0;
 
+  //Create variables to store elements.
+  let playerChoice = document.querySelector("#player-choice");
+  let computerChoice = document.querySelector("#computer-choice");    
+  let btnContainer = document.querySelector("#button-container");
+  let gameInfo = document.querySelector("#game-info");
+  let playBtn = document.querySelector("#play-button");
+
+  //Create buttons for user selection.
+  const rockBtn = document.createElement("button");
+  const paperBtn = document.createElement("button");
+  const scissorsBtn = document.createElement("button");
+  const playAgainBtn = document.createElement("button");
+
+  //Remove play button.
+  btnContainer.removeChild(playBtn);
+
   //Game loop.
   do
   {
     let counter = 1;
     
-    //Create buttons for user selection.
-    const rockBtn = document.createElement("button");
-    const paperBtn = document.createElement("button");
-    const scissorsBtn = document.createElement("button");
-    const playAgainBtn = document.createElement("button");
-
-
     //Style buttons and add click event listeners for playing a round.
     styleButton(rockBtn, "Rock");
     styleButton(paperBtn, "Paper");
@@ -110,18 +119,9 @@ function playGame ()
     rockBtn.addEventListener("click", () => playRound("rock", getComputerChoice()));
     paperBtn.addEventListener("click", () => playRound("paper", getComputerChoice()));
     scissorsBtn.addEventListener("click", () => playRound("scissors", getComputerChoice()));
-
     
-    //Create variables to store elements.
-    let playerChoice = document.querySelector("#player-choice");
-    let computerChoice = document.querySelector("#computer-choice");    
-    let btnContainer = document.querySelector("#button-container");
-    let gameInfo = document.querySelector("#game-info");
-    let playBtn = document.querySelector("#play-button");
-
-
+    
     //Display buttons when game starts.
-    btnContainer.removeChild(playBtn);
     btnContainer.appendChild(rockBtn); 
     btnContainer.appendChild(paperBtn);
     btnContainer.appendChild(scissorsBtn);
@@ -136,17 +136,13 @@ function playGame ()
 
   }while (playerScore <=5 && computerScore <=5);
 
-
   //Display game over, results, and goodbye message.
   console.log("Game over, " + checkWinner() + "\n" +
     "Goodbye!");
 }
 
-
 //Variables for node manipulation.
 const playBtn = document.querySelector("#play-button");
-
-
 
 //Start game when play button is pressed.
 playBtn.addEventListener("click", (e)=>{
