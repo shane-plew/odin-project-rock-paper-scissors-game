@@ -87,6 +87,9 @@ function styleButton (element, btnName)
 //Game loop.
 function playGame ()
 {
+  //Variable initialization.
+  let playerScore = 0, computerScore = 0;
+
   //Game loop.
   do
   {
@@ -143,9 +146,6 @@ function playGame ()
 //Variables for node manipulation.
 const playBtn = document.querySelector("#play-button");
 
-
-//Variable declarations.
-let playerScore = 0, computerScore = 0;
 
 
 //Start game when play button is pressed.
