@@ -18,48 +18,42 @@ return choice3;
   }
 }
 
-//Ask user for choice between rock, paper, or scissors.
-function getHumanChoice()
-{
-  return prompt("Please type your choice: 'rock', 'paper', or 'scissors'");
-}
-
 //Compare player choices, display round winner message, increment winner's score by 1.
-function playRound (humanChoice,computerChoice)
+function playRound (playerChoice,computerChoice)
 {
   //Make user input all lower case for compatibility with conditional logic.
-  humanChoice = humanChoice.toLowerCase();
+  playerChoice = playerChoice.toLowerCase();
 
   console.log("Computer choice: " + computerChoice);
 
-  if (humanChoice === computerChoice)
+  if (playerChoice === computerChoice)
   {
     console.log("Tied!")
   }
-  else if (humanChoice === "rock" && computerChoice === "paper"
-  || humanChoice === "paper" && computerChoice === "scissors"
-  || humanChoice === "scissors" && computerChoice === "rock")
+  else if (playerChoice === "rock" && computerChoice === "paper"
+  || playerChoice === "paper" && computerChoice === "scissors"
+  || playerChoice === "scissors" && computerChoice === "rock")
   {
-    console.log("Computer wins, " + computerChoice + " beats " + humanChoice + "!");
+    console.log("Computer wins, " + computerChoice + " beats " + playerChoice + "!");
     computerScore++;
   }
-  else if (humanChoice === "rock" && computerChoice === "scissors"
-    || humanChoice === "paper" && computerChoice === "rock"
-    || humanChoice === "scissors" && computerChoice === "paper")
+  else if (playerChoice === "rock" && computerChoice === "scissors"
+    || playerChoice === "paper" && computerChoice === "rock"
+    || playerChoice === "scissors" && computerChoice === "paper")
   {
-    console.log("You win, " + humanChoice + " beats " + computerChoice + "!");
-    humanScore++;
+    console.log("You win, " + playerChoice + " beats " + computerChoice + "!");
+    playerScore++;
   }
 }
 
 //Check which player wins, return string with formatted result.
 function checkWinner ()
 {
-  if (humanScore > computerScore)
+  if (playerScore > computerScore)
   {
     return "you win!";
   }
-  else if (humanScore < computerScore)
+  else if (playerScore < computerScore)
   {
     return "computer wins!";
   }
@@ -122,14 +116,14 @@ function playGame ()
 
     console.log("Round number " + (i + 1));
 
-    playRound (getHumanChoice(), getComputerChoice());
+    playRound (getComputerChoice());
     
     console.log("Current score\n" + 
       "-------------\n" +
-      "You: " + humanScore + "\n" + 
+      "You: " + playerScore + "\n" + 
       "Computer: " + computerScore);
 
-  }while (humanScore <=5 && computerScore <=5);
+  }while (playerScore <=5 && computerScore <=5);
 
 
   //Display game over, results, and goodbye message.
@@ -141,7 +135,7 @@ function playGame ()
 const playBtn = document.querySelector("#play-button");
 
 //Variable declarations.
-let humanScore = 0, computerScore = 0;
+let playerScore = 0, computerScore = 0;
 
 //Start game when play button is pressed.
 playBtn.addEventListener("click", (e)=>{
