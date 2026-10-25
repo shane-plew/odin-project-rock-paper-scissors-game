@@ -90,6 +90,8 @@ function playGame ()
   //Game loop.
   do
   {
+    let counter = 1;
+    
     //Create buttons for user selection.
     const rockBtn = document.createElement("button");
     const paperBtn = document.createElement("button");
@@ -102,9 +104,9 @@ function playGame ()
     styleButton(paperBtn, "Paper");
     styleButton(scissorsBtn, "Scissors");
 
-    rockBtn.addEventListener("click", playRound("rock", getComputerChoice()));
-    paperBtn.addEventListener("click", playRound("paper", getComputerChoice()));
-    scissorsBtn.addEventListener("click", playRound("scissors", getComputerChoice()));
+    rockBtn.addEventListener("click", () => playRound("rock", getComputerChoice()));
+    paperBtn.addEventListener("click", () => playRound("paper", getComputerChoice()));
+    scissorsBtn.addEventListener("click", () => playRound("scissors", getComputerChoice()));
 
     
     //Create variables to store elements.
@@ -121,7 +123,8 @@ function playGame ()
     btnContainer.appendChild(paperBtn);
     btnContainer.appendChild(scissorsBtn);
 
-    console.log("Round number " + (i + 1));
+    console.log("Round number " + (counter));
+    counter++;
     
     console.log("Current score\n" + 
       "-------------\n" +
