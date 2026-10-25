@@ -96,7 +96,7 @@ function playGame ()
     const scissorsBtn = document.createElement("button");
     const playAgainBtn = document.createElement("button");
 
-    //Style buttons.
+    //Style buttons and add click event listeners for playing a round.
     styleButton(rockBtn, "Rock");
     styleButton(paperBtn, "Paper");
     styleButton(scissorsBtn, "Scissors");
