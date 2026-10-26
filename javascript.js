@@ -29,7 +29,7 @@ function playRound (playerChoice,computerChoice)
   //Check round winner, update display.
   if (playerChoice === computerChoice)
   {
-
+    
   }
   else if (playerChoice === "rock" && computerChoice === "paper"
   || playerChoice === "paper" && computerChoice === "scissors"
@@ -115,6 +115,12 @@ function displayGame ()
   btnContainer.appendChild(paperBtn);
   btnContainer.appendChild(scissorsBtn);
 
+  computerTitle.textContent = "Computer";
+  playerTitle.textContent = "Player";
+
+  computerChoice.style.borderColor = "white";
+  playerChoice.style.borderColor = "white";
+
   updateScore();
 }
 
@@ -145,6 +151,10 @@ let playerChoice = document.querySelector("#player-choice");
 let computerChoice = document.querySelector("#computer-choice");    
 let btnContainer = document.querySelector("#button-container");
 let gameInfo = document.querySelector("#game-info");
+const computerTitle = document.querySelector("#computer-title");
+const computerText = document.querySelector("#computer-text");
+const playerTitle = document.querySelector("#player-title");
+const playerText = document.querySelector("#player-text");
 
 //Start game when play button is pressed.
 playBtn.addEventListener("click", (e)=>{
