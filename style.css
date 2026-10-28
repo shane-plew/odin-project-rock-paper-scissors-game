@@ -87,7 +87,7 @@ h1
     border-right: 2px dashed white;
 }
 
-#game-info
+#info-container
 {
     width: 400px;
     height: 50px;
@@ -147,4 +147,30 @@ h1
     text-align: center;
     flex-direction: column;
     justify-content: center;
+}
+
+#info-container
+{
+    width: 400px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#player-score
+{
+    width: 133px;
+    border-right: 2px dashed white;
+}
+
+#game-info
+{
+    width: 133px;
+}
+
+#computer-score
+{
+    width: 133px;
+    border-left: 2px dashed white;
 }

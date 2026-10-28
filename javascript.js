@@ -71,7 +71,9 @@ function playRound (playerChoice,computerChoice)
 
 function updateScore()
 {
-  console.log("Round number " + (roundCounter));
+  gameInfo.textContent = "Round: " + roundCounter;
+  playerScoreTxt.textContent = "Score: " + playerScore;
+  computerScoreTxt.textContent = "Score: " + computerScore;
   roundCounter++;
  
   //Update score info.
@@ -118,7 +120,7 @@ function checkWinner ()
 
     btnContainer.appendChild(playAgainBtn);
 
-  }, 3000);
+  }, 2000);
 }
 
 function styleButton (element, btnName)
@@ -141,7 +143,7 @@ function styleButton (element, btnName)
     element.style.color = "lightgray";
   });
   element.addEventListener("mouseup", () => {
-    element.style.borderColor = "limegreen";
+    element.style.borderColor = "white";
     element.style.color = "white";
   });
 }
@@ -181,6 +183,8 @@ function resetGame ()
   computerScore = 0;
   playerScore = 0;
   roundCounter = 1;
+
+  updateScore();
 }
 
 //Variables for node manipulation.
@@ -208,14 +212,17 @@ scissorsBtn.addEventListener("click", () => playRound("scissors", getComputerCho
 playAgainBtn.addEventListener("click", () => resetGame());
     
 //Create variables to store elements.
-let playerContainer = document.querySelector("#player-choice");
-let computerContainer = document.querySelector("#computer-choice");    
-let btnContainer = document.querySelector("#button-container");
-let gameInfo = document.querySelector("#game-info");
+const playerContainer = document.querySelector("#player-choice");
+const computerContainer = document.querySelector("#computer-choice");    
+const btnContainer = document.querySelector("#button-container");
+const infoContainer = document.querySelector("#infoContainer");
 const computerTitle = document.querySelector("#computer-title");
 const computerText = document.querySelector("#computer-text");
 const playerTitle = document.querySelector("#player-title");
 const playerText = document.querySelector("#player-text");
+const playerScoreTxt = document.querySelector("#player-score");
+const computerScoreTxt = document.querySelector("#computer-score");
+const gameInfo = document.querySelector("#game-info");
 
 //Start game when play button is pressed.
 playBtn.addEventListener("click", (e)=>{
