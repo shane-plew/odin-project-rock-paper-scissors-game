@@ -27,22 +27,42 @@ function playRound (playerChoice,computerChoice)
   console.log("Computer choice: " + computerChoice);
 
   //Check round winner, update display.
+  //Tie
   if (playerChoice === computerChoice)
   {
-    
+    computerText.textContent = "Tied!";
+    computerText.style.color = "white";
+    computerContainer.style.borderColor = "white";
+    playerText.textContent = "Tied!";
+    playerText.style.color = "white";
+    playerContainer.style.borderColor = "white";
   }
+  //Computer wins
   else if (playerChoice === "rock" && computerChoice === "paper"
   || playerChoice === "paper" && computerChoice === "scissors"
   || playerChoice === "scissors" && computerChoice === "rock")
   {
-    console.log("Computer wins, " + computerChoice + " beats " + playerChoice + "!");
+    computerText.textContent = "Winner!";
+    computerText.style.color = "limegreen";
+    computerContainer.style.borderColor = "limegreen";
+    playerText.textContent = "Loser :(";
+    playerText.style.color = "red";
+    playerContainer.style.borderColor = "red";
+    
     computerScore++;
   }
+  //Player wins
   else if (playerChoice === "rock" && computerChoice === "scissors"
     || playerChoice === "paper" && computerChoice === "rock"
     || playerChoice === "scissors" && computerChoice === "paper")
   {
-    console.log("You win, " + playerChoice + " beats " + computerChoice + "!");
+    computerText.textContent = "Loser :(";
+    computerText.style.color = "red";
+    computerContainer.style.borderColor = "red";
+    playerText.textContent = "Winner!";
+    playerText.style.color = "limegreen";
+    playerContainer.style.borderColor = "limegreen";
+ 
     playerScore++;
   }
 
@@ -68,17 +88,37 @@ function updateScore()
 //Check which player wins, return string with formatted result.
 function checkWinner ()
 {
-  //Display game over, results, and goodbye message.
-  if (playerScore > computerScore)
-  {
-    console.log("Game over, you win!\n" +
-    "Goodbye!");
-  }
-  else if (playerScore < computerScore)
-  {
-    console.log("Game over, compuer wins :(\n" +
-    "Goodbye!");
-  }
+  btnContainer.removeChild(rockBtn);
+  btnContainer.removeChild(paperBtn);
+  btnContainer.removeChild(scissorsBtn);
+
+  const myTimout = setTimeout(() => {
+
+    //Display winner and play again button
+    if (playerScore > computerScore)
+    {
+      playerText.textContent = "You win the game!";
+      playerText.style.color = "limegreen";
+      playerContainer.style.borderColor = "limegreen";
+
+      computerText.textContent = "Computer lost the game!";
+      computerText.style.color = "red";
+      computerContainer.style.borderColor = "red";
+    }
+    else if (playerScore < computerScore)
+    {
+      playerText.textContent = "You lost the game!";
+      playerText.style.color = "red";
+      playerContainer.style.borderColor = "red";
+
+      computerText.textContent = "Computer won the game!";
+      computerText.style.color = "limegreen";
+      computerContainer.style.borderColor = "limegreen";
+    }
+
+    btnContainer.appendChild(playAgainBtn);
+
+  }, 3000);
 }
 
 function styleButton (element, btnName)
@@ -118,10 +158,29 @@ function displayGame ()
   computerTitle.textContent = "Computer";
   playerTitle.textContent = "Player";
 
-  computerChoice.style.borderColor = "white";
-  playerChoice.style.borderColor = "white";
+  computerContainer.style.borderColor = "white";
+  playerContainer.style.borderColor = "white";
 
   updateScore();
+}
+
+//Set display to default after play again button is pressed.
+function resetGame ()
+{
+  btnContainer.removeChild(playAgainBtn);
+  btnContainer.appendChild(rockBtn);
+  btnContainer.appendChild(paperBtn);
+  btnContainer.appendChild(scissorsBtn);
+
+  playerText.textContent = "";
+  playerContainer.style.borderColor = "white";
+
+  computerText.textContent = "";
+  computerContainer.style.borderColor = "white";
+
+  computerScore = 0;
+  playerScore = 0;
+  roundCounter = 1;
 }
 
 //Variables for node manipulation.
@@ -141,14 +200,16 @@ const playAgainBtn = document.createElement("button");
 styleButton(rockBtn, "Rock");
 styleButton(paperBtn, "Paper");
 styleButton(scissorsBtn, "Scissors");
+styleButton(playAgainBtn, "Play Again");
 
 rockBtn.addEventListener("click", () => playRound("rock", getComputerChoice()));
 paperBtn.addEventListener("click", () => playRound("paper", getComputerChoice()));
 scissorsBtn.addEventListener("click", () => playRound("scissors", getComputerChoice()));
+playAgainBtn.addEventListener("click", () => resetGame());
     
 //Create variables to store elements.
-let playerChoice = document.querySelector("#player-choice");
-let computerChoice = document.querySelector("#computer-choice");    
+let playerContainer = document.querySelector("#player-choice");
+let computerContainer = document.querySelector("#computer-choice");    
 let btnContainer = document.querySelector("#button-container");
 let gameInfo = document.querySelector("#game-info");
 const computerTitle = document.querySelector("#computer-title");
