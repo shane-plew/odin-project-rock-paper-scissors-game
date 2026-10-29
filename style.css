@@ -16,8 +16,8 @@ body
 {
     background-color: black;
     height: 100%;
+    padding: 10px;
     width: 100%;
-    min-width: 600px;
     display: flex;
     flex-direction: column;
     justify-content: center;
